@@ -11,13 +11,14 @@
       media="screen"
       href="css/style.css"
     />
-    <script defer src="js/InputRenderer.js"></script>
+    <script defer src="js/inputRenderer.js"></script>
+    <script defer src="js/commandParser.js"></script>
   </head>
 
 
   <body>
     <div id="terminal">
-      <a id="before"></a>
+      <a id="contentHook"></a>
     </div>
     <div id="command" onclick="focusOnTextArea()">
       <textarea
