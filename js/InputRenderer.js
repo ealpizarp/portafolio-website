@@ -53,7 +53,6 @@ function moveCursor(count, event, moveStep = MOVE_STEP) {
   const keyCode = event.key;
 
   if (!isArrowKey(keyCode)) {
-    console.log("Is not Arrow key");
     return;
   }
 
@@ -66,7 +65,7 @@ function moveCursor(count, event, moveStep = MOVE_STEP) {
   );
 
   if (newPosition !== undefined) {
-    cursor.style.left = newLeft + "px";
+    cursor.style.left = newPosition + "px";
   }
 }
 
@@ -134,7 +133,6 @@ function isLeftArrow(key) {
  */
 
 function isArrowKey(key) {
-  console.log(key);
   return key === "ArrowLeft" || key === "ArrowRight";
 }
 
