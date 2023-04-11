@@ -1,10 +1,11 @@
 :root {
-    --background: #211D1B;
-    --primaryTextColor: #519975;
-    --secundaryTextColor: #73ABAD;
-    --highlightTextColor: #B89076;
-    --white: #fff;
-  }
+  --background: #002b36;
+  --primaryTextColor: #93a1a1;
+  --secundaryTextColor: #73ABAD;
+  --highlightTextColor: #B89076;
+  --white: #fff;
+}
+
 
 body {
     margin: 0;

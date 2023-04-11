@@ -1,7 +1,7 @@
 /**
  * @fileOverview This file manages the rendering of the text input for the terminal user interface.
  *
- * @module InputRenderer
+ * @module inputRenderer
  * @description This module contains methods for rendering user input in a terminal-like interface. These methods enable the user 
  * to interact with the interface by entering commands and viewing the output in real-time.
  * @version 1.0.0
@@ -9,6 +9,7 @@
 
 
 const MOVE_STEP = 10;
+const BASE_ROOT = "guest@ealpizarp.com:~$ ";
 
 const cursor = document.getElementById("cursor");
 const typerElement = document.getElementById("typer");

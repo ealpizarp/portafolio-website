@@ -1,31 +1,47 @@
 
-const BASE_ROOT = "guest@ealpizarp.com:~$ "
 
-const contentHook = document.getElementById("contentHook");
+window.onload = init;
+
+function init() {
+  cursor.style.left = "0px";
+  renderMultipleLines(BANNER, 80, "", true);
+  setTimeout( () => {
+    renderMultipleLines(TERMINAL_INFO,  80, "color2");
+  }, 1200);
+}
+
+
 
 function processCommand(command) {
   command = command.trim();
   const args = command.split(" ");
+  renderLine(BASE_ROOT + command, "no-animation", 0);
 
   switch (args[0]) {
+    case "man":
+      renderMultipleLines(COMMAND_LIST, 80);
+      break;
+    case "about":
+      renderMultipleLines(ABOUT, 80)
+      break;
     case "ls":
       console.log("ls", args);
-      // execute ls command
+      // NOT IMPLEMENTED
       break;
     case "cd":
       console.log("cd", args);
-      // execute cd command
+      // NOT IMPLEMENTED
       break;
     case "mkdir":
       console.log("mkdir", args);
-      // execute mkdir command
+      // NOT IMPLEMENTED
       break;
     case "rm":
       console.log("mkdir", args);
-      // execute rm command
+      // NOT IMPLEMENTED
       break;
     default:
-      renderLine(BASE_ROOT + command, "no-animation", 0);
+      renderLine("Command not found. For a list of commands, type <span class=\"command\">'man'</span>.", "error", 100);
       break;
   } 
 }
@@ -49,8 +65,13 @@ textAreaInput.addEventListener("keydown", (event) => {
  * @param {string} style - The CSS class to apply to the line.
  * @param {number} time - The delay in milliseconds before adding the line.
  */
-function renderLine(text, style, time) {
-  const formattedText = formatText(text);
+function renderLine(text, style, time, asciiArt=false) {
+  let formattedText = text;
+  if (asciiArt) {
+    formattedText = formatASCIIArt(text);
+  } else {
+    formattedText = formatText(text);
+  }
   setTimeout(() => {
     const next = createLine(formattedText, style);
     insertLine(next, contentHook);
@@ -63,10 +84,16 @@ function renderLine(text, style, time) {
  * @param {string} text - The text to format.
  * @returns {string} The formatted text.
  */
+function formatASCIIArt(text) {
+  const space = " ";
+  const noBreakingSpace = "&nbsp";
+
+  return text.replaceAll(space, noBreakingSpace);
+}
+
 function formatText(text) {
   const doubleSpace = "  ";
-  const doubleNoBreakingSpace = "&nbsp;&nbsp;";
-
+  const doubleNoBreakingSpace = "&nbsp;&nbsp";
   return text.replaceAll(doubleSpace, doubleNoBreakingSpace);
 }
 
@@ -103,4 +130,17 @@ function scrollToBottom() {
  */
 function clearInput() {
   textAreaInput.value = "";
+}
+
+/**
+ * Renders multiple lines with a delay between each one.
+ * @param {Array} lines - Array of strings to render as separate lines.
+ * @param {string} style - The CSS class to apply to the lines.
+ * @param {number} delay - The delay in milliseconds between rendering each line.
+ */
+function renderMultipleLines(lines, delay=0, style="", asciiArt=false) {
+  lines.forEach((line, index) => {
+      renderLine(line, style, index * delay, asciiArt);
+  })
+
 }
