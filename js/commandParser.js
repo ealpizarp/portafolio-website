@@ -1,11 +1,5 @@
 
-
-addEventListener("change", (event) => {});
-
-
 const mql = window.matchMedia("(max-width: 600px)");
-
-
 
 window.onload = init;
 
