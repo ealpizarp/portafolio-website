@@ -35,6 +35,21 @@ textAreaInput.addEventListener("input", (event) => {
   typerElement.textContent = event.target.value;
 });
 
+window.addEventListener('scroll', function() {
+  var currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+  if (currentScrollPos > 0) {
+    document.activeElement.blur();
+  }
+});
+
+document.addEventListener('touchstart', function(e) {
+    mobileInput.focus();
+});
+
+document.addEventListener('mousedown', function(e) {
+    textAreaInput.focus();
+});
+
 
 /**
  * Focuses on the textarea element.

@@ -199,8 +199,10 @@ body {
       width: 85%;
       color: var(--primaryTextColor);
       font-family: monospace;
+      font-size: 1rem;
       outline: none;
       font-weight: 500;
+      vertical-align:middle;
 
     }
 
