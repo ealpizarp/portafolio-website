@@ -37,6 +37,13 @@ function processCommand(command) {
     case "email":
       renderMultipleLines(EMAIL_INFO, 80);
       break;
+    case "banner": 
+      renderBanner();
+      break;
+    case "clear":
+      setTimeout( () =>
+      contentHook = clearTerminal(terminal, contentHook), 1)
+      break;
     case "ls":
       console.log("ls", args);
       // NOT IMPLEMENTED
@@ -49,7 +56,12 @@ function processCommand(command) {
       // NOT IMPLEMENTED
       break;
     default:
-      renderLine("Command not found. For a list of commands, type <span class=\"command\">'man'</span>.", "error", 100);
+      if (mql.matches) {
+        renderLine("<br>Command not found");
+        renderLine("type <span class=\"command\">'help'</span> for all commands<br><br>");
+      } else {
+        renderLine("Command not found. For a list of commands, type <span class=\"command\">'help'</span>.", "error", 100);
+      }
       break;
   } 
 }
@@ -120,6 +132,7 @@ function formatText(text) {
  */
 function createLine(text, style) {
   const line = document.createElement("p");
+  line.className = style;
   line.innerHTML = `<span class="${style}">${text}</span>`;
   return line;
 }
@@ -184,4 +197,11 @@ function renderBanner() {
         renderMultipleLines(TERMINAL_INFO,  80, "highlightColor");
       }, 1200);
     }
+}
+
+function clearTerminal(root, hook) {
+  const id = hook.id
+  root.innerHTML = '<a id="' + id + '"></a>';
+  hook = document.getElementById(id);
+  return hook;
 }

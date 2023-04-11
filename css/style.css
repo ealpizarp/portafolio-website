@@ -115,9 +115,13 @@ body {
     margin: 0;
     letter-spacing: 0.05em;
     animation: typing 0.5s steps(30, end);
+    
   }
   .no-animation {
-    animation: typing 0 steps(30, end);
+    animation: none !important;
+  }
+  .typing-animation {
+    animation: typing 0.5s steps(30, end);
   }
   .margin {
     margin-left: 20px;
@@ -186,16 +190,17 @@ body {
     }
 
     #mobileInput {
-      display: inline-block;
+      display: block;
     }
 
     #mobileInput input {
       border: none;
       background-color: var(--background);
-      width: 90%;
+      width: 85%;
       color: var(--primaryTextColor);
       font-family: monospace;
       outline: none;
+      font-weight: 500;
 
     }
 
