@@ -14,6 +14,8 @@ const BASE_ROOT = "guest@ealpizarp.com:~$ ";
 const cursor = document.getElementById("cursor");
 const typerElement = document.getElementById("typer");
 const textAreaInput = document.getElementById("texter");
+const contentHook = document.getElementById("contentHook");
+const mobileInput = document.querySelector("#mobileInput input");
 
 window.onload = init;
 

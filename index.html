@@ -12,8 +12,9 @@
       href="css/style.css"
     />
     <script defer src="js/commands.js"></script>
-    <script defer src="js/inputRenderer.js"></script>
-    <script defer src="js/commandParser.js"></script>
+    <script defer src="js/InputRenderer.js"></script>
+    <script defer type="module" src="js/commandParser.js"></script>
+    
   </head>
 
 
@@ -30,6 +31,7 @@
       ></textarea>
       <div id="liner">
         <span id="typer"></span><b class="cursor" id="cursor">█</b>
+        <span id="mobileInput"><input type="text"></span>
       </div>
     </div>
 

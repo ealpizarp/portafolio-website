@@ -1,19 +1,33 @@
-:root {
-  --background: #002b36;
-  --primaryTextColor: #93a1a1;
-  --secundaryTextColor: #73ABAD;
-  --highlightTextColor: #B89076;
-  --white: #fff;
-}
+/* :root {
+    --background: #002b36;
+    --primaryTextColor: #93a1a1;
+    --secundaryTextColor: #73ABAD;
+    --highlightTextColor: #B89076;
+    --white: #fff;
+  } */
 
+  :root {
+    --background: #262a33;
+    --primaryTextColor: #e5e5e5;
+    --secundaryTextColor: #e5e512;
+    --highlightTextColor: #0fa8cd;
+    --white: #fff;
+    --baseDirectory: "guest@ealpizarp.com:~$";
+  }
+
+* {
+  box-sizing: border-box;
+}
 
 body {
     margin: 0;
     padding: 15px 20px;
     min-height: 99%;
-    width: 100vw;
-    min-width: 550px;
+    width: 100%;
+    /* min-width: 550px; */
+    height: 100%;
     color: var(--primaryTextColor);
+    text-shadow: 0 0 1px var(--secundaryTextColor);
     background: var(--background);
     font-family: cursor, monospace;
     overflow-x: hidden;
@@ -75,11 +89,9 @@ body {
   }
   #liner::before {
     color: var(--primaryTextColor);
-    content: "guest@ealpizarp.com:~$";
+    content: var(--baseDirectory);
   }
-  #liner.password::before {
-    content: "Password:";
-  }
+
   @keyframes show {
     from {
       opacity: 0;
@@ -121,7 +133,7 @@ body {
   .index {
     color: #DCDCCC;
   }
-  .color2 {
+  .highlightColor {
     color: var(--highlightTextColor);
   }
   .command {
@@ -147,4 +159,54 @@ body {
   }
   a:focus {
     outline: 0;
+  }
+
+ #mobileInput {
+  display: none;
+  }
+
+
+  @media (max-width:600px){
+
+    body {
+      padding: 0.5rem 0.8rem;
+      overflow-x: auto;
+    }
+
+    #cursor {
+      display: none;
+    }
+
+    textarea {
+      display: none;
+    }
+
+    .cursor {
+      display: none;
+    }
+
+    #mobileInput {
+      display: inline-block;
+    }
+
+    #mobileInput input {
+      border: none;
+      background-color: var(--background);
+      width: 90%;
+      color: var(--primaryTextColor);
+      font-family: monospace;
+      outline: none;
+
+    }
+
+    #mobileInput::before {
+      content: ">";
+      color: var(--primaryTextColor);
+      margin-right: 10px;
+    }
+
+    #terminal {
+      font-size: small;
+    }
+
   }

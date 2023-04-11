@@ -1,28 +1,47 @@
 
 
+addEventListener("change", (event) => {});
+
+
+const mql = window.matchMedia("(max-width: 600px)");
+
+
+
 window.onload = init;
 
 function init() {
+  console.log(window.innerWidth);
   cursor.style.left = "0px";
-  renderMultipleLines(BANNER, 80, "", true);
-  setTimeout( () => {
-    renderMultipleLines(TERMINAL_INFO,  80, "color2");
-  }, 1200);
+  renderBanner();
+  // renderMultipleLines(BANNER, 80, "", true);
+  // setTimeout( () => {
+  //   renderMultipleLines(TERMINAL_INFO,  80, "highlightColor");
+  // }, 1200);
 }
 
 
 
 function processCommand(command) {
+  command = command.toLowerCase();
   command = command.trim();
   const args = command.split(" ");
   renderLine(BASE_ROOT + command, "no-animation", 0);
 
   switch (args[0]) {
-    case "man":
+    case "help":
       renderMultipleLines(COMMAND_LIST, 80);
       break;
     case "about":
-      renderMultipleLines(ABOUT, 80)
+      renderMultipleLines(ABOUT, 80);
+      break;
+    case "social":
+      renderMultipleLines(SOCIAL, 80);
+      break;
+    case "projects":
+      renderMultipleLines(PROJECTS, 80);
+      break;
+    case "email":
+      renderMultipleLines(EMAIL_INFO, 80);
       break;
     case "ls":
       console.log("ls", args);
@@ -32,12 +51,7 @@ function processCommand(command) {
       console.log("cd", args);
       // NOT IMPLEMENTED
       break;
-    case "mkdir":
-      console.log("mkdir", args);
-      // NOT IMPLEMENTED
-      break;
-    case "rm":
-      console.log("mkdir", args);
+    case "sudo":
       // NOT IMPLEMENTED
       break;
     default:
@@ -55,7 +69,14 @@ function processCommand(command) {
 textAreaInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     processCommand(event.target.value);
-    clearInput();
+    clearInput(textAreaInput);
+  }
+});
+
+mobileInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    processCommand(event.target.value);
+    clearInput(mobileInput);
   }
 });
 
@@ -118,19 +139,28 @@ function insertLine(element, referenceElement) {
   referenceElement?.parentNode?.insertBefore(element, referenceElement);
 }
 
-/**
- * Scrolls the window to the bottom of the page.
- */
+// /**
+//  * Scrolls the window to the bottom of the page.
+//  */
+// function scrollToBottom() {
+//   window.scrollTo(0, document.body.offsetHeight);
+// }
+
 function scrollToBottom() {
-  window.scrollTo(0, document.body.offsetHeight);
+  window.scrollTo({
+    top: document.body.offsetHeight,
+    behavior: "smooth"
+  });
 }
+
 
 /**
  * Clears the input of the textarea
  */
-function clearInput() {
-  textAreaInput.value = "";
+function clearInput(inputElement) {
+  inputElement.value = "";
 }
+
 
 /**
  * Renders multiple lines with a delay between each one.
@@ -143,4 +173,21 @@ function renderMultipleLines(lines, delay=0, style="", asciiArt=false) {
       renderLine(line, style, index * delay, asciiArt);
   })
 
+}
+
+function renderBanner() {
+
+    if (mql.matches) {
+      renderMultipleLines(MOBILE_BANNER, 80, "", true);
+      setTimeout( () => {
+        renderMultipleLines(TERMINAL_INFO_MOBILE,  80, "highlightColor");
+      }, 1200);
+      console.log("This is a narrow screen — less than 600px wide.");
+    } else {
+      console.log("This is a wide screen — more than 600px wide.");
+      renderMultipleLines(BANNER, 80, "", true);
+      setTimeout( () => {
+        renderMultipleLines(TERMINAL_INFO,  80, "highlightColor");
+      }, 1200);
+    }
 }
