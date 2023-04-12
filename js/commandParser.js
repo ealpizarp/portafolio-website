@@ -7,10 +7,6 @@ function init() {
   console.log(window.innerWidth);
   cursor.style.left = "0px";
   renderBanner();
-  // renderMultipleLines(BANNER, 80, "", true);
-  // setTimeout( () => {
-  //   renderMultipleLines(TERMINAL_INFO,  80, "highlightColor");
-  // }, 1200);
 }
 
 
@@ -40,21 +36,38 @@ function processCommand(command) {
     case "banner": 
       renderBanner();
       break;
+    case "curriculum" || "cv":
+      newTab("https://ealpizarp.github.io/erick-alpizar-cv/");
+      break;
     case "clear":
       setTimeout( () =>
       contentHook = clearTerminal(terminal, contentHook), 1)
       break;
-    case "ls":
-      console.log("ls", args);
-      // NOT IMPLEMENTED
-      break;
-    case "cd":
-      console.log("cd", args);
-      // NOT IMPLEMENTED
-      break;
+    // case "ls":
+    //   console.log("ls", args);
+    //   // NOT IMPLEMENTED
+    //   break;
     case "sudo":
-      // NOT IMPLEMENTED
+      renderMultipleLines(SUDO, 80);
       break;
+    case "education":
+      if (mql.matches) {
+        renderMultipleLines(MOBILE_EDUCATION_INFO, 80);
+      } else {
+        renderMultipleLines(EDUCATION_INFO, 80);
+      }
+      break;
+    case "pwd":
+      renderLine("<br>/home/ericalpizar/projects/cliPortafolio<br><br>");
+      break
+    case "echo":
+      const printCommands = args.slice(1).join(" ");
+      renderLine("<br>" + printCommands + "<br></br>", 80);
+      break;
+    // case "cd":
+    //   console.log("cd", args);
+    //   // NOT IMPLEMENTED
+    //   break;
     default:
       if (mql.matches) {
         renderLine("<br>Command not found");
@@ -204,4 +217,12 @@ function clearTerminal(root, hook) {
   root.innerHTML = '<a id="' + id + '"></a>';
   hook = document.getElementById(id);
   return hook;
+}
+
+
+
+function newTab(link) {
+  setTimeout(function() {
+    window.open(link, "_blank");
+  }, 500);
 }
