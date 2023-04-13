@@ -9,19 +9,29 @@ education and other information.
 ## Tech Stack
 
 **JavaScript**
-**HTML** 
+
+**HTML**
+
 **CSS**
 
 ### Features
-Unique CLI-inspired user interface
-Interactive and immersive design
-Responsive design
-Command history (prev and next with arrow keys)
+
+- Unique CLI-inspired user interface 
+
+- Interactive and immersive design
+
+- Responsive design
+
+- Command history (prev and next with arrow keys)
+
+- A bunch of easter eggs!
 
 
+<br>
 <p align="center">
   <img src="img/demo.gif" alt="animated" />
 </p>
+<br>
 
 
 ### Usage
@@ -32,6 +42,8 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 
 ### Inspiration
+
+I was inspired by the following terminal based portafolio websites.
 
 * [Forest](https://fkcodes.com/)
 * [SatNiang](https://github.com/satnaing/terminal-portfolio)
