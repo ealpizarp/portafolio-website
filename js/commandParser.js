@@ -43,10 +43,9 @@ function processCommand(command) {
       setTimeout( () =>
       contentHook = clearTerminal(terminal, contentHook), 1)
       break;
-    // case "ls":
-    //   console.log("ls", args);
-    //   // NOT IMPLEMENTED
-    //   break;
+    case "ls":
+      renderMultipleLines(DIRECTORIES, 80);
+      break;
     case "sudo":
       renderMultipleLines(SUDO, 80);
       break;
@@ -64,10 +63,20 @@ function processCommand(command) {
       const printCommands = args.slice(1).join(" ");
       renderLine("<br>" + printCommands + "<br></br>", 80);
       break;
-    // case "cd":
-    //   console.log("cd", args);
-    //   // NOT IMPLEMENTED
-    //   break;
+    case "cd":
+      if (args[1] === "music") {
+        renderLine("Opennig music...", 80);
+        newTab("https://open.spotify.com/user/ealpizaro?si=d3239ad0630d4390");
+      } else if (args[1] === "photos") {
+        renderLine("Opennig photos...", 80);
+        newTab("https://photos.app.goo.gl/DHzDdzHrc4K46CrCA");
+      } else if (args[1] === "videos") {
+        renderLine("Opennig videos...", 80);
+        newTab("https://www.youtube.com/playlist?list=FLBt0XXUPegLUnars8P-eogQ");
+      } else {
+        renderLine("Directory not found: " + args.slice(1).join(" "));
+      }
+      break;
     default:
       if (mql.matches) {
         renderLine("<br>Command not found");

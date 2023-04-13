@@ -88,7 +88,7 @@ body {
     opacity: 0;
   }
   #liner::before {
-    color: var(--primaryTextColor);
+    color: var(--highlightTextColor);
     content: var(--baseDirectory);
   }
 

@@ -116,6 +116,8 @@ COMMAND_LIST = [
   '<span class="command">banner</span>         Display the header',
   '<span class="command">clear</span>          Clear terminal',
   '<span class="command">echo</span>           Print any give string',
+  '<span class="command">ls</span>             List directory content',
+  '<span class="command">cd -directory</span>  Change directory',
   '<span class="command">help</span>           Display all commands',
   "<br>",
 ];
@@ -138,6 +140,16 @@ BANNER = [
     
 
 ];
+
+DIRECTORIES = [ 
+"<br>",
+"/photos",
+"/music",
+"/videos",
+"<br>"
+]
+
+
 
 EMAIL_INFO = [
   "                 ",
