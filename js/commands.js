@@ -51,7 +51,6 @@ const ABOUT = [
 
 
 
-
 SOCIAL = [
   "<br>",
   'twitter        <a href="' + TWITTER + '" target="_blank">twitter/' + USERNAME + '</a>',
@@ -60,9 +59,6 @@ SOCIAL = [
   'github         <a href="' + GITHUB + '" target="_blank">github/' + USERNAME + "</a>",
   "<br>"
 ];
-
-
-
 
 
 PROJECTS = [
@@ -117,7 +113,7 @@ COMMAND_LIST = [
   '<span class="command">clear</span>          Clear terminal',
   '<span class="command">echo</span>           Print any give string',
   '<span class="command">ls</span>             List directory content',
-  '<span class="command">cd -directory</span>  Change directory',
+  '<span class="command">cd &lt;directory&gt</span> Change directory',
   '<span class="command">help</span>           Display all commands',
   "<br>",
 ];
@@ -143,9 +139,9 @@ BANNER = [
 
 DIRECTORIES = [ 
 "<br>",
-"/photos",
-"/music",
-"/videos",
+"photos",
+"music",
+"videos",
 "<br>"
 ]
 
@@ -254,6 +250,7 @@ MOBILE_BANNER = [
 // ' / _// __/ / __/ / __ |/ / _ \\/ /_ // _ `/ __/ =-=-_-__=_-= _=_=-=_,-' + `|"'""-|-,_`,
 // `/___/_/ /_/\\__/ /_/ |_/_/ .__/_//__/\\_,_/_/   =- _=-=- -_=-=_,-"           |`,
 // "                      /_/                      === =- =- -=.--",
+
 
 
 

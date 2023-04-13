@@ -3,53 +3,75 @@ const mql = window.matchMedia("(max-width: 600px)");
 
 window.onload = init;
 
+
+/**
+Initializes the terminal and sets the initial position of the cursor.
+*/
 function init() {
-  console.log(window.innerWidth);
   cursor.style.left = "0px";
   renderBanner();
 }
 
+let comandHistory = []; //Array containing the command history.
+let commandIndex = 0  //Index for command history handling.
 
+
+/**
+ * Processes a command entered in the terminal and executes the corresponding action.
+ *
+ * @param {string} command - The command to process.
+ */
 
 function processCommand(command) {
-  command = command.toLowerCase();
-  command = command.trim();
-  const args = command.split(" ");
+
+  const args = formatCommand(command);
+
   renderLine(BASE_ROOT + command, "no-animation", 0);
 
   switch (args[0]) {
     case "help":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderMultipleLines(COMMAND_LIST, 80);
       break;
     case "about":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderMultipleLines(ABOUT, 80);
       break;
     case "social":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderMultipleLines(SOCIAL, 80);
       break;
     case "projects":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderMultipleLines(PROJECTS, 80);
       break;
     case "email":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderMultipleLines(EMAIL_INFO, 80);
       break;
     case "banner": 
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderBanner();
       break;
-    case "curriculum" || "cv":
+    case "curriculum":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       newTab("https://ealpizarp.github.io/erick-alpizar-cv/");
       break;
     case "clear":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       setTimeout( () =>
       contentHook = clearTerminal(terminal, contentHook), 1)
       break;
     case "ls":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderMultipleLines(DIRECTORIES, 80);
       break;
     case "sudo":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderMultipleLines(SUDO, 80);
       break;
     case "education":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       if (mql.matches) {
         renderMultipleLines(MOBILE_EDUCATION_INFO, 80);
       } else {
@@ -57,13 +79,16 @@ function processCommand(command) {
       }
       break;
     case "pwd":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       renderLine("<br>/home/ericalpizar/projects/cliPortafolio<br><br>");
       break
     case "echo":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       const printCommands = args.slice(1).join(" ");
       renderLine("<br>" + printCommands + "<br></br>", 80);
       break;
     case "cd":
+      commandIndex = addCommandToHistory(args,comandHistory, commandIndex);
       if (args[1] === "music") {
         renderLine("Opennig music...", 80);
         newTab("https://open.spotify.com/user/ealpizaro?si=d3239ad0630d4390");
@@ -77,6 +102,12 @@ function processCommand(command) {
         renderLine("Directory not found: " + args.slice(1).join(" "));
       }
       break;
+      case "history":
+        renderLine("<br>");
+        comandHistory.push("<br>");
+        renderMultipleLines(comandHistory, 80);
+        comandHistory.pop()
+        break;
     default:
       if (mql.matches) {
         renderLine("<br>Command not found");
@@ -88,25 +119,17 @@ function processCommand(command) {
   } 
 }
 
-/**
- * Listens to the "keydown" event of the "textAreaInput" element, and processes
- * the input command when the "Enter" key is pressed.
- * @param {KeyboardEvent} event - The event object for the "keydown" event.
- */
-
-textAreaInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    processCommand(event.target.value);
-    clearInput(textAreaInput);
-  }
-});
-
+textAreaInput.addEventListener("keydown", handleEnterKeyPress);
+textAreaInput.addEventListener("keydown", handleArrowUpKeyPress);
+textAreaInput.addEventListener("keydown", handleArrowDownKeyPress);
 mobileInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     processCommand(event.target.value);
     clearInput(mobileInput);
-  }
+  } 
 });
+
+
 
 /**
  * Adds a new line to the terminal output.
@@ -204,22 +227,33 @@ function renderMultipleLines(lines, delay=0, style="", asciiArt=false) {
 
 }
 
-function renderBanner() {
+/**
+Renders a banner based on the screen width.
+@function
+@returns {void}
+*/
 
+function renderBanner() {
     if (mql.matches) {
       renderMultipleLines(MOBILE_BANNER, 80, "", true);
       setTimeout( () => {
         renderMultipleLines(TERMINAL_INFO_MOBILE,  80, "highlightColor");
       }, 1200);
-      console.log("This is a narrow screen — less than 600px wide.");
     } else {
-      console.log("This is a wide screen — more than 600px wide.");
       renderMultipleLines(BANNER, 80, "", true);
       setTimeout( () => {
         renderMultipleLines(TERMINAL_INFO,  80, "highlightColor");
       }, 1200);
     }
 }
+
+/**
+Clears the terminal.
+@function
+@param {HTMLElement} root - The root element of the terminal.
+@param {HTMLElement} hook - The hook that contains all the previous content.
+@returns {HTMLElement} A cleared hook.
+*/
 
 function clearTerminal(root, hook) {
   const id = hook.id
@@ -228,10 +262,103 @@ function clearTerminal(root, hook) {
   return hook;
 }
 
-
+/**
+Opens a link in a new tab.
+@function
+@param {string} link - The link to be opened.
+@returns {void}
+*/
 
 function newTab(link) {
   setTimeout(function() {
     window.open(link, "_blank");
   }, 500);
+}
+
+/**
+
+Adds a command to the command history array.
+@function
+@param {string[]} commands - The commands to be added.
+@param {string[]} historyArray - The array that stores the command history.
+@param {number} currentIndex - The index of the current command in the history.
+@returns {number} The index of the new command in the history.
+*/
+
+function addCommandToHistory(commands, historyArray, currentIndex) {
+  const commandString = commands.join(" ");
+  historyArray.push(commandString);
+  return currentIndex + 1;
+}
+
+
+/**
+
+Formats a command by converting it to lower case, trimming it, and splitting it into an array.
+@function
+@param {string} command - The command to be formatted.
+@returns {string[]} The formatted command as an array of strings.
+*/
+
+function formatCommand(command) {
+  command = command.toLowerCase();
+  command = command.trim();
+  return command.split(" ");
+}
+
+
+/**
+
+Handles the "Enter" key press event.
+@function
+@param {KeyboardEvent} event - The event object.
+@returns {void}
+*/
+
+function handleEnterKeyPress(event) {
+  if (event.key === "Enter") {
+    processCommand(event.target.value);
+    clearInput(textAreaInput);
+  }
+}
+
+/**
+Handles the "ArrowUp" key press event.
+@function
+@param {KeyboardEvent} event - The event object.
+@returns {void}
+*/
+
+function handleArrowUpKeyPress(event) {
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
+    if (commandIndex > 0) {
+      commandIndex = commandIndex - 1;
+      textAreaInput.value = comandHistory[commandIndex]
+      typerElement.innerHTML = comandHistory[commandIndex];
+    }
+  }
+}
+
+
+/**
+
+Handles the "ArrowDown" key press event.
+@function
+@param {KeyboardEvent} event - The event object.
+@returns {void}
+*/
+
+function handleArrowDownKeyPress(event) {
+  if (event.key === "ArrowDown" && commandIndex < comandHistory.length) {
+    commandIndex = commandIndex + 1;
+    if (comandHistory[commandIndex] === undefined) {
+      textAreaInput.value = "";
+      typerElement.innerHTML = "";
+    }
+    else {
+      textAreaInput.value = comandHistory[commandIndex];
+      typerElement.innerHTML = comandHistory[commandIndex];
+    }
+  }
 }
