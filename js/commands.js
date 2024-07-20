@@ -2,7 +2,7 @@ const TWITTER = "https://twitter.com/AlpizarEric";
 const LINKEDIN = "https://www.linkedin.com/in/eric-alpizar-133567169/";
 const INSTAGRAM = "https://www.instagram.com/_ealpizarp/";
 const GITHUB = "https://github.com/ealpizarp";
-const EMAIL = 'ericalpizar@gmail.com';
+const EMAIL = "ericalpizar@gmail.com";
 const USERNAME = "ealpizarp";
 
 // const ABOUT = [
@@ -11,7 +11,7 @@ const USERNAME = "ealpizarp";
 //   "My name is Eric, and I'm a final year Computer Science and Engineering student.",
 //   "Throughout my degree, I've honed my skills in algorithms, mathematics, and other",
 //   "technical fields. I'm passionate about technology and enjoy learning new things, ",
-//   "as well as tackling challenges with creativity and innovation. In my free time,", 
+//   "as well as tackling challenges with creativity and innovation. In my free time,",
 //   "I enjoy reading, exercising, and playing video games occasionally. I believe that ",
 //   "a balanced lifestyle is essential to maintaining a healthy body and mind, which is ",
 //   "crucial for success in any field. As I approach the end of my studies, I'm excited ",
@@ -22,44 +22,59 @@ const USERNAME = "ealpizarp";
 
 const ABOUT = [
   "<br>",
-  "Hello there!👋" ,
+  "Hello there!👋",
   "              ",
-  "I'm Eric, a Computer Science ",
-  "and Engineering student with ",
-  "a passion for technology! 🧑‍💻",
+  "I'm Eric, a Software Engineer",
+  "with a lifelong passion for",
+  "technology and innovation! 🧑‍💻",
   "                            ",
   "                            ",
-  "My love for technology runs deep", 
-  "and I've been fortunate enough to",
-  "hone my skills in algorithms, math",
-  "and other technical fields that",
-  "keep me engaged and inspired.",
+  "My journey with technology began",
+  "early in my childhood, sparking",
+  "a fascination that led me to study",
+  "Computer Science and Engineering.",
   "                             ",
   "                             ",
-  "I find joy in constantly learning new",
-  "things and tackling challenges with",
-  "creativity and innovation.",
+  "I thrive on learning new concepts",
+  "and applying them to solve",
+  "complex problems. Through my work,",
+  "I've developed expertise in",
+  "building robust software systems",
+  "and collaborating effectively",
+  "within diverse teams.",
   "                                     ",
-  "As I approach my final year of my",
-  "degree, I'm eager to explore job ",
-  "opportunities and dive deeper into", 
-  "research projects. Being at the" ,
-  "forefront of technological innovation ",
-  "is a true passion of mine. 🚀",,
-  "<br>"
+  "As I progress in my career,",
+  "I'm eager to explore new",
+  "technologies and contribute to",
+  "innovative projects that drive",
+  "positive change. 🚀",
+  "<br>",
 ];
-
-
 
 SOCIAL = [
   "<br>",
-  'twitter        <a href="' + TWITTER + '" target="_blank">twitter/' + USERNAME + '</a>',
-  'linkedin       <a href="' + LINKEDIN + '" target="_blank">linkedin/' + USERNAME + "</a>",
-  'instagram      <a href="' + INSTAGRAM + '" target="_blank">instagram/' + USERNAME + '</a>',
-  'github         <a href="' + GITHUB + '" target="_blank">github/' + USERNAME + "</a>",
-  "<br>"
+  'twitter        <a href="' +
+    TWITTER +
+    '" target="_blank">twitter/' +
+    USERNAME +
+    "</a>",
+  'linkedin       <a href="' +
+    LINKEDIN +
+    '" target="_blank">linkedin/' +
+    USERNAME +
+    "</a>",
+  'instagram      <a href="' +
+    INSTAGRAM +
+    '" target="_blank">instagram/' +
+    USERNAME +
+    "</a>",
+  'github         <a href="' +
+    GITHUB +
+    '" target="_blank">github/' +
+    USERNAME +
+    "</a>",
+  "<br>",
 ];
-
 
 PROJECTS = [
   "<br>",
@@ -83,7 +98,7 @@ PROJECTS = [
   "<br>",
   "<strong> - Climate Crawler <strong>",
   "Hadoop-based data processing solution",
-  "for web crawler data with a", 
+  "for web crawler data with a",
   "web interface",
   "Tech stack: Hadoop, Python, React",
   "<a href=https://github.com/ealpizarp/Climate-Crawler> GitHub link",
@@ -95,9 +110,8 @@ PROJECTS = [
   "<a href=https://github.com/ealpizarp/angular-weather-app> GitHub link",
   "<br>",
   "<strong>Check out some of my other projects",
-  "<strong> in my </strong> <a class=\"command\" href=https://github.com/ealpizarp/> GitHub profile</a> <strong>",
-  "<br>"
-
+  '<strong> in my </strong> <a class="command" href=https://github.com/ealpizarp/> GitHub profile</a> <strong>',
+  "<br>",
 ];
 
 COMMAND_LIST = [
@@ -119,45 +133,36 @@ COMMAND_LIST = [
 ];
 
 BANNER = [
-
-"        .n.                                                           |",
-"       /___\\                                                _.---.  \\ _ /",
-"       [|||]                                               (_._ ) )--;_) =-",
-"       [___]                                                  '---'.__,' \\ ",
-`       }-=-{          ____    _       ___   __     _                  |`,
-'       |-" |         / __/___(_)___  / _ | / /__  (_)__ ___ _____                ',     
-'       |.-"|        / _// __/ / __/ / __ |/ / _ \\/ /_ // _ `/ __/         p',
-"~^=~^~-|_.-|~^-~^~ /___/_/ /_/\\__/ /_/ |_/_/ .__/_//__/\\_,_/_/   ~^~ -^~^~|\\ ~^-~^~-",
-`^   .=.| _.|__  ^                         /_/              ® 2023     ~  /| \\ `,
-' ~ /:. \\" _|_/\\    ~         ~                       ~                  /_|__\\  ^',
-'.-/::.  |   |""|-._    ^                                     ~           ~~~~',
-"  `===-'-----' "+ `""` + "`  '-.              ~            ~                       ",
-"                 __.-'      ^",
-    
-
+  "        .n.                                                           |",
+  "       /___\\                                                _.---.  \\ _ /",
+  "       [|||]                                               (_._ ) )--;_) =-",
+  "       [___]                                                  '---'.__,' \\ ",
+  `       }-=-{          ____    _       ___   __     _                  |`,
+  '       |-" |         / __/___(_)___  / _ | / /__  (_)__ ___ _____                ',
+  '       |.-"|        / _// __/ / __/ / __ |/ / _ \\/ /_ // _ `/ __/         p',
+  "~^=~^~-|_.-|~^-~^~ /___/_/ /_/\\__/ /_/ |_/_/ .__/_//__/\\_,_/_/   ~^~ -^~^~|\\ ~^-~^~-",
+  `^   .=.| _.|__  ^                         /_/              ® 2024     ~  /| \\ `,
+  ' ~ /:. \\" _|_/\\    ~         ~                       ~                  /_|__\\  ^',
+  '.-/::.  |   |""|-._    ^                                     ~           ~~~~',
+  "  `===-'-----' " +
+    `""` +
+    "`  '-.              ~            ~                       ",
+  "                 __.-'      ^",
 ];
 
-DIRECTORIES = [ 
-"<br>",
-"photos",
-"music",
-"videos",
-"<br>"
-]
-
-
+DIRECTORIES = ["<br>", "photos", "music", "videos", "<br>"];
 
 EMAIL_INFO = [
   "                 ",
-  "✉️ " + "<a href=mailto:" + EMAIL + ">" + EMAIL +"</a>",
-  "                  "
-]
+  "✉️ " + "<a href=mailto:" + EMAIL + ">" + EMAIL + "</a>",
+  "                  ",
+];
 
 SUDO = [
-"                                                                ",
-"Only Eric has <span class=\"command\">admin</span> privileges :(",
-"                                                                "
-]
+  "                                                                ",
+  'Only Eric has <span class="command">admin</span> privileges :(',
+  "                                                                ",
+];
 
 EDUCATION_INFO = [
   "<br><strong>B.sc in Computer Science and Engineering</strong>",
@@ -169,8 +174,8 @@ EDUCATION_INFO = [
   "                                                  ",
   "<strong>Industrial Electronics Technician</strong>",
   "Colegio Tecnico Profesional CIT  |  2015 - 2018",
-  "<br>"
-]
+  "<br>",
+];
 
 MOBILE_EDUCATION_INFO = [
   "<br><strong>B.sc. Computer Science and Engineering</strong>",
@@ -185,26 +190,23 @@ MOBILE_EDUCATION_INFO = [
   "<strong>Industrial Electronics Technician</strong>",
   "Colegio Tecnico Profesional CIT",
   "2015 - 2018",
-  "<br>"
-]
-
+  "<br>",
+];
 
 TERMINAL_INFO = [
-'Welcome to my interactive web terminal portafolio',
-"For a list of available commands, type <span class=\"command\">'help'</span>."
-]
+  "Welcome to my interactive web terminal portafolio",
+  "For a list of available commands, type <span class=\"command\">'help'</span>.",
+];
 
 TERMINAL_INFO_MOBILE = [
-  'Welcome to my terminal web portafolio!',
+  "Welcome to my terminal web portafolio!",
   "                                 ",
-  "For a list of available commands,", 
+  "For a list of available commands,",
   "type <span class=\"command\">'help'</span>.",
   "                                          ",
   "Version (1.0)",
-  "                                          "
-  ]
-
-
+  "                                          ",
+];
 
 // -----------------------SAMPLE ASCII ARTS --------------------
 
@@ -215,31 +217,29 @@ TERMINAL_INFO_MOBILE = [
 // "                             /_/                            "
 
 MOBILE_BANNER = [
-// "  ____    _       ___   __     _             ",
-// "  / __/___(_)___  / _ | / /__  (_)__ ___ _____",
-// " / _// __/ / __/ / __ |/ / _ \\/ /_ // _ `/ __/",
-// "/___/_/ /_/\\__/ /_/ |_/_/ .__/_//__/\\_,_/_/   ",
-// "                       /_/           ® 2023    ",
+  // "  ____    _       ___   __     _             ",
+  // "  / __/___(_)___  / _ | / /__  (_)__ ___ _____",
+  // " / _// __/ / __/ / __ |/ / _ \\/ /_ // _ `/ __/",
+  // "/___/_/ /_/\\__/ /_/ |_/_/ .__/_//__/\\_,_/_/   ",
+  // "                       /_/           ® 2023    ",
 
-
-"   ____    _                                  ",
-"  / __/___(_)___                             ",
-" / _// __/ / __/                             ",
-"/___/_/ /_/\\__/                             ",
-// "                       /_/           ® 2023    ",
-"            ___   __     _                ",
-"           / _ | / /__  (_)__ ___ _____   ",
-"          / __ |/ / _ \\/ /_ // _ `/ __/  ",
-"         /_/ |_/_/ .__/_//__/\\_,_/_/     ",
-"                /_/         ® 2023    ",
-"                                          "
-]
+  "   ____    _                                  ",
+  "  / __/___(_)___                             ",
+  " / _// __/ / __/                             ",
+  "/___/_/ /_/\\__/                             ",
+  // "                       /_/           ® 2023    ",
+  "            ___   __     _                ",
+  "           / _ | / /__  (_)__ ___ _____   ",
+  "          / __ |/ / _ \\/ /_ // _ `/ __/  ",
+  "         /_/ |_/_/ .__/_//__/\\_,_/_/     ",
+  "                /_/         ® 2023    ",
+  "                                          ",
+];
 // "   ____    _       ___   __     _               ",
 // "  / __/___(_)___  / _ | / /__  (_)__ ___ _____  ",
 // " / _// __/ / __/ / __ |/ / _ \\/ /_ // _ `/ __/ ",
 // "/___/_/ /_/\\__/ /_/ |_/_/ .__/_//__/\\_,_/_/   ",
 // "                       /_/                      ",
-
 
 // "                                                  |",
 // "                                                \\ _ /",
@@ -250,9 +250,6 @@ MOBILE_BANNER = [
 // ' / _// __/ / __/ / __ |/ / _ \\/ /_ // _ `/ __/ =-=-_-__=_-= _=_=-=_,-' + `|"'""-|-,_`,
 // `/___/_/ /_/\\__/ /_/ |_/_/ .__/_//__/\\_,_/_/   =- _=-=- -_=-=_,-"           |`,
 // "                      /_/                      === =- =- -=.--",
-
-
-
 
 // "        .n.                     |",
 // "       /___\\          _.---.  \\ _ /",
@@ -268,9 +265,6 @@ MOBILE_BANNER = [
 // "  `===-'-----' "+ `""` + "`  '-.              ~",
 // "                 __.-'      ^",
 
-
-
-
 // "|",
 // "\ _ /",
 // "-= (_) =-",
@@ -280,4 +274,3 @@ MOBILE_BANNER = [
 // `=-=-_-__=_-= _=_=-=_,-'|"'""-|-,_`,
 // `=- _=-=- -_=-=_,-"          |`,
 // "jgs =- =- -=.--",
-
